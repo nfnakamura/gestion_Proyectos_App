@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.db import IntegrityError
 
 # Create your views here.
@@ -26,7 +26,7 @@ def signup(request):
                     username=request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('tareas')
+                return redirect('tasks')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm,
@@ -37,5 +37,9 @@ def signup(request):
             'error': 'Las contraseñas no coinciden'
         })
 
-def tareas(request):
-    return render(request, 'tareas.html')
+def tasks(request):
+    return render(request, 'tasks.html')
+
+def signout(request):
+    logout(request)
+    return redirect('home') 
