@@ -2,17 +2,39 @@
 
 {% block content %}
 
-<h1>Registrarse</h1>
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/signup/" method="POST" class="card card-body ">
+                <h1 class="text-center">Registrarse</h1>
+                {{error}}
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="username">Usuario:</label>
+                    <input class="form-control" type="text" name="username" id="username" placeholder="Escriba su nombre de usuario"></input>
+                </div>
 
-{{error}}
-<form action="/signup/" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>
-        Registrase
-    </button>
+                <div class="mb-3">
+                    <label for="password1">Contraseña:</label>
+                    <input class="form-control" type="password" name="password1" id="password1" placeholder="Escriba su contraseña"></input>
+                </div>
 
-</form>
+                <div class="mb-3">
+                    <label for="password2">Usuario:</label>
+                    <input class="form-control" type="password" name="password2" id="password2" placeholder="Repita su contraseña"></input>
+                </div>
+
+                <button class="btn btn-primary">
+                    Registrase
+                </button>
+            
+            </form>
+        
+        </div>
+    </div>
+    
+</main>
 
 {% endblock  %}
 

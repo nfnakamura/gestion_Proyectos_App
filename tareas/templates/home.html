@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Bienvenidxs</h1>
+<main class="container py-5">
+    <section class="card cardbody">
+        <h1 class="display-1 text-center">Gestor de Proyectos</h1>
+        <p class="text-center">Puedes gestionar tus proyectos y enlistar tareas. Para comenzar debes crear un usuario, si ya posees uno haz click en ingresar.</p>
+        <img style="width: 18rem;" class="m-auto" src="https://images.vexels.com/media/users/3/151869/isolated/preview/767ca771755f4675d4063c03e17c8595-icono-de-lista-de-verificacion-medica.png" alt="">
+        
 
-<p>Gestor de proyectos</p>
+        <div class="text-center mb-3">
+            <a class="btn btn-secondary" href="/signin/">
+                Ingresar
+            </a>
+            <a class="btn btn-dark" href="/signup/">
+                Registrarse
+            </a>
+
+        </div>
+        
+    </section>
+</main>
 
 {% endblock %}
